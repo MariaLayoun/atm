@@ -1,6 +1,6 @@
 username = "username"
 password = "password"
-n= 500000000
+n = 500000000
 
 def login():
     user = input("Username: \n")
@@ -30,28 +30,27 @@ def return_to_main_menu():
         print("Have a great day!")
     else:
         print("Invalid input")
-    return new_bal
-
 
 def display():
     print(f"Your current balance is ${n}")
 
 def withdraw():
+    global n
     num1 = int(input("How much would you like to withdraw? \n"))
     n -= num1
     display()
-    return_to_main_menu()
+    # return_to_main_menu()
     
 def deposit():
+    global n
     num2= int(input("How much would you like to deposit?  \n"))
     n += num2
     display()
-    return_to_main_menu()
-
+    # return_to_main_menu()
 
 def main_menu():
     status = True
-    while status == True:
+    while status:
         action = input("What would you like to do? \n 1) Display account balance \n 2) Withdraw \n 3) Deposit \n 4) Exit \n (1,2,3,4)\n") 
         if action == "1":
             display()
@@ -68,5 +67,8 @@ def main_menu():
 def ATM():
     login()
     main_menu()
+
+if __name__ == "__main__":
+    ATM()
 
 
